@@ -37,9 +37,17 @@
     </properties>
 
     <modules>
+        <module>app/sofasmy-test</module>
         <module>app/sofasmy-bootstrap</module>
         <module>app/sofasmy-web</module>
-        <module>app/common/sofasmy-util</module>
+        <module>app/biz/sofasmy-biz-shared</module>
+        <module>app/biz/sofasmy-biz-service-impl</module>
+        <module>app/core/sofasmy-core-model</module>
+        <module>app/core/sofasmy-core-service</module>
+        <module>app/common/service/sofasmy-common-service-facade</module>
+        <module>app/common/service/sofasmy-common-service-integration</module>
+        <module>app/common/sofasmy-common-dal</module>
+        <module>app/common/sofasmy-common-util</module>
     </modules>
 
     <dependencyManagement>
@@ -66,7 +74,42 @@
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-util</artifactId>
+                <artifactId>sofasmy-biz-service-impl</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-biz-shared</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-core-model</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-core-service</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-common-service-integration</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-common-service-facade</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-common-dal</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-common-util</artifactId>
                 <version>${version}</version>
             </dependency>
             <!--Project modules End-->
