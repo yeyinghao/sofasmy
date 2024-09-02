@@ -3,7 +3,7 @@
  * 2022.1 - 2023.7
  */
 
-package com.luman.sofasmy.common.util;
+package com.luman.sofasmy.common.util.util;
 
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;

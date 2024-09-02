@@ -18,7 +18,7 @@
 
         <dependency>
             <groupId>com.luman</groupId>
-            <artifactId>sofasmy-core-model</artifactId>
+            <artifactId>sofasmy-common-util</artifactId>
         </dependency>
 
     </dependencies>

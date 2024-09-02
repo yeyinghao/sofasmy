@@ -43,6 +43,7 @@
         <module>app/biz/sofasmy-biz-shared</module>
         <module>app/biz/sofasmy-biz-service-impl</module>
         <module>app/core/sofasmy-core-model</module>
+        <module>app/core/sofasmy-core-monitor</module>
         <module>app/core/sofasmy-core-service</module>
         <module>app/common/service/sofasmy-common-service-facade</module>
         <module>app/common/service/sofasmy-common-service-integration</module>
@@ -85,6 +86,11 @@
             <dependency>
                 <groupId>com.luman</groupId>
                 <artifactId>sofasmy-core-model</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-core-monitor</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
