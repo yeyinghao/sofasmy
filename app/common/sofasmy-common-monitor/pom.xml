@@ -10,7 +10,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>sofasmy-core-monitor</artifactId>
+    <artifactId>sofasmy-common-monitor</artifactId>
     <packaging>jar</packaging>
     <name>sofasmy-core-monitor</name>
 
@@ -18,18 +18,9 @@
 
         <dependency>
             <groupId>com.luman</groupId>
-            <artifactId>sofasmy-common-dal</artifactId>
+            <artifactId>sofasmy-common-util</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.luman</groupId>
-            <artifactId>sofasmy-common-service-integration</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.luman</groupId>
-            <artifactId>sofasmy-common-service-facade</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
