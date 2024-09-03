@@ -61,7 +61,7 @@
             <!--Spring Boot-->
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofa-common-bom</artifactId>
+                <artifactId>sofa-common</artifactId>
                 <version>${sofa-common.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
