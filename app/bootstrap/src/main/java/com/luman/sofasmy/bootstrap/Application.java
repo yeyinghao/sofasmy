@@ -1,6 +1,6 @@
 package com.luman.sofasmy.bootstrap;
 
-import com.luman.sofasmy.util.util.LoggerUtil;
+import com.luman.sofa.common.util.util.LoggerUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
