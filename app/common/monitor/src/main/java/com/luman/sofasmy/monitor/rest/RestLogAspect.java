@@ -3,16 +3,16 @@ package com.luman.sofasmy.monitor.rest;
 import cn.hutool.extra.validation.BeanValidationResult;
 import cn.hutool.extra.validation.ValidationUtil;
 import cn.hutool.json.JSONUtil;
+import com.luman.sofasmy.dto.DTO;
+import com.luman.sofasmy.monitor.LogAspect;
+import com.luman.sofasmy.monitor.LogInfo;
 import com.luman.sofasmy.util.constant.CommConstant;
-import com.luman.sofasmy.util.dto.DTO;
 import com.luman.sofasmy.util.enums.ErrorEnum;
 import com.luman.sofasmy.util.exception.BizException;
 import com.luman.sofasmy.util.exception.CheckUtil;
 import com.luman.sofasmy.util.helper.RHelper;
 import com.luman.sofasmy.util.util.LoggerUtil;
 import com.luman.sofasmy.util.util.TimeUtil;
-import com.luman.sofasmy.monitor.LogAspect;
-import com.luman.sofasmy.monitor.LogInfo;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -34,7 +34,7 @@ public class RestLogAspect extends LogAspect {
 	/**
 	 * <a href="https://blog.csdn.net/zhengchao1991/article/details/53391244">The syntax of pointcut </a>
 	 */
-	@Pointcut("@within(com.luman.sofasmy.monitor.rest.RestLog) && execution(public * *(..))")
+	@Pointcut("@within(RestLog) && execution(public * *(..))")
 	public void pointcut() {
 	}
 

@@ -1,7 +1,4 @@
-package com.luman.sofasmy.util.dto;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+package com.luman.sofasmy.dto;
 
 import java.io.Serial;
 
@@ -11,8 +8,6 @@ import java.io.Serial;
  * @author yeyinghao
  * @date 2024/08/19
  */
-@EqualsAndHashCode(callSuper = true)
-@Data
 public abstract class PageQuery extends Query {
 
 	/**
@@ -26,4 +21,11 @@ public abstract class PageQuery extends Query {
 	 */
 	private Paging paging;
 
+	public Paging getPaging() {
+		return paging;
+	}
+
+	public void setPaging(Paging paging) {
+		this.paging = paging;
+	}
 }

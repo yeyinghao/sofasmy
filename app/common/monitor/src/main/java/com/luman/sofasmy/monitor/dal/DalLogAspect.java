@@ -28,7 +28,7 @@ public class DalLogAspect extends LogAspect {
 	/**
 	 * <a href="https://blog.csdn.net/zhengchao1991/article/details/53391244">The syntax of pointcut </a>
 	 */
-	@Pointcut("@within(com.luman.sofasmy.monitor.dal.DalLog) && execution(public * *(..))")
+	@Pointcut("@within(DalLog) && execution(public * *(..))")
 	public void pointcut() {
 	}
 

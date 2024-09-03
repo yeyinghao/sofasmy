@@ -7,18 +7,14 @@
         <groupId>com.luman</groupId>
         <artifactId>sofasmy</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../../../../pom.xml</relativePath>
+        <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>sofasmy-facade</artifactId>
+    <artifactId>sofasmy-dto</artifactId>
     <packaging>jar</packaging>
-    <name>sofasmy-facade</name>
+    <name>sofasmy-dto</name>
 
     <dependencies>
-        <dependency>
-            <groupId>com.luman</groupId>
-            <artifactId>sofasmy-dto</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

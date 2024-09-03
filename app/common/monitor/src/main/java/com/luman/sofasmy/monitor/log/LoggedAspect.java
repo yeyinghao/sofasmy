@@ -28,7 +28,7 @@ public class LoggedAspect extends LogAspect {
 	/**
 	 * <a href="https://blog.csdn.net/zhengchao1991/article/details/53391244">The syntax of pointcut </a>
 	 */
-	@Pointcut("@within(com.luman.smy.infra.common.log.log.Logged) && execution(public * *(..))")
+	@Pointcut("@within(Logged) && execution(public * *(..))")
 	public void pointcut() {
 	}
 

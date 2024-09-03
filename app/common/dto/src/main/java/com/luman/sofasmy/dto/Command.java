@@ -1,4 +1,4 @@
-package com.luman.sofasmy.util.dto;
+package com.luman.sofasmy.dto;
 
 import java.io.Serial;
 

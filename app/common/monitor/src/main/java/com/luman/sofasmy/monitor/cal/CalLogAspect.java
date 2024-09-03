@@ -28,7 +28,7 @@ public class CalLogAspect extends LogAspect {
 	/**
 	 * <a href="https://blog.csdn.net/zhengchao1991/article/details/53391244">The syntax of pointcut </a>
 	 */
-	@Pointcut("@within(com.luman.sofasmy.monitor.cal.CalLog) && execution(public * *(..))")
+	@Pointcut("@within(CalLog) && execution(public * *(..))")
 	public void pointcut() {
 	}
 

@@ -1,14 +1,16 @@
-package com.luman.sofasmy.util.dto;
+package com.luman.sofasmy.dto;
 
 import java.io.Serial;
+import java.io.Serializable;
+
 
 /**
- * 查询
+ * dto
  *
  * @author yeyinghao
  * @date 2024/08/19
  */
-public abstract class Query extends Command {
+public abstract class DTO implements Serializable {
 
     /**
      * 串口版本uid

@@ -1,7 +1,7 @@
 package com.luman.sofasmy.util.helper;
 
 import cn.hutool.core.util.StrUtil;
-import com.luman.sofasmy.util.dto.Response;
+import com.luman.sofasmy.dto.Response;
 import com.luman.sofasmy.util.enums.ByErrorCode;
 import com.luman.sofasmy.util.enums.ErrorEnum;
 import com.luman.sofasmy.util.util.TraceIdUtil;

@@ -45,6 +45,7 @@
         <module>app/core/model</module>
         <module>app/core/service</module>
         <module>app/common/monitor</module>
+        <module>app/common/dto</module>
         <module>app/common/service/facade</module>
         <module>app/common/service/integration</module>
         <module>app/common/dal</module>
@@ -116,6 +117,11 @@
             <dependency>
                 <groupId>com.luman</groupId>
                 <artifactId>sofasmy-util</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman</groupId>
+                <artifactId>sofasmy-dto</artifactId>
                 <version>${version}</version>
             </dependency>
             <!--Project modules End-->
