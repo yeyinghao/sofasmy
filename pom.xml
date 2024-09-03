@@ -37,18 +37,18 @@
     </properties>
 
     <modules>
-        <module>app/sofasmy-test</module>
-        <module>app/sofasmy-bootstrap</module>
-        <module>app/sofasmy-web</module>
-        <module>app/biz/sofasmy-biz-shared</module>
-        <module>app/biz/sofasmy-biz-service-impl</module>
-        <module>app/core/sofasmy-core-model</module>
-        <module>app/core/sofasmy-core-service</module>
-        <module>app/common/sofasmy-common-monitor</module>
-        <module>app/common/service/sofasmy-common-service-facade</module>
-        <module>app/common/service/sofasmy-common-service-integration</module>
-        <module>app/common/sofasmy-common-dal</module>
-        <module>app/common/sofasmy-common-util</module>
+        <module>app/test</module>
+        <module>app/bootstrap</module>
+        <module>app/web</module>
+        <module>app/biz/shared</module>
+        <module>app/biz/facadeimpl</module>
+        <module>app/core/model</module>
+        <module>app/core/service</module>
+        <module>app/common/monitor</module>
+        <module>app/common/service/facade</module>
+        <module>app/common/service/integration</module>
+        <module>app/common/dal</module>
+        <module>app/common/util</module>
     </modules>
 
     <dependencyManagement>
@@ -75,47 +75,47 @@
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-biz-service-impl</artifactId>
+                <artifactId>sofasmy-facade-impl</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-biz-shared</artifactId>
+                <artifactId>sofasmy-shared</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-core-model</artifactId>
+                <artifactId>sofasmy-model</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-common-monitor</artifactId>
+                <artifactId>sofasmy-monitor</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-core-service</artifactId>
+                <artifactId>sofasmy-service</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-common-service-integration</artifactId>
+                <artifactId>sofasmy-integration</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-common-service-facade</artifactId>
+                <artifactId>sofasmy-facade</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-common-dal</artifactId>
+                <artifactId>sofasmy-dal</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-common-util</artifactId>
+                <artifactId>sofasmy-util</artifactId>
                 <version>${version}</version>
             </dependency>
             <!--Project modules End-->
