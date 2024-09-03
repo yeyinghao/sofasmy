@@ -3,6 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.alipay.sofa</groupId>
+        <artifactId>sofaboot-dependencies</artifactId>
+        <version>4.3.0</version>
+    </parent>
+
     <groupId>com.luman</groupId>
     <artifactId>sofasmy</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -17,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <sofa.boot.version>4.3.0</sofa.boot.version>
+        <sofa-common.version>1.0.0-SNAPSHOT</sofa-common.version>
 
         <nacos.version>0.3.0-RC</nacos.version>
         <mybatis-encrypt-version>1.2.0</mybatis-encrypt-version>
@@ -44,8 +50,6 @@
         <module>app/biz/facadeimpl</module>
         <module>app/core/model</module>
         <module>app/core/service</module>
-        <module>app/common/monitor</module>
-        <module>app/common/dto</module>
         <module>app/common/service/facade</module>
         <module>app/common/service/integration</module>
         <module>app/common/dal</module>
@@ -56,9 +60,9 @@
         <dependencies>
             <!--Spring Boot-->
             <dependency>
-                <groupId>com.alipay.sofa</groupId>
-                <artifactId>sofaboot-dependencies</artifactId>
-                <version>${sofa.boot.version}</version>
+                <groupId>com.luman</groupId>
+                <artifactId>sofa-common-bom</artifactId>
+                <version>${sofa-common.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -91,11 +95,6 @@
             </dependency>
             <dependency>
                 <groupId>com.luman</groupId>
-                <artifactId>sofasmy-monitor</artifactId>
-                <version>${version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.luman</groupId>
                 <artifactId>sofasmy-service</artifactId>
                 <version>${version}</version>
             </dependency>
@@ -117,11 +116,6 @@
             <dependency>
                 <groupId>com.luman</groupId>
                 <artifactId>sofasmy-util</artifactId>
-                <version>${version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.luman</groupId>
-                <artifactId>sofasmy-dto</artifactId>
                 <version>${version}</version>
             </dependency>
             <!--Project modules End-->

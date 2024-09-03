@@ -21,6 +21,11 @@
             <artifactId>sofasmy-util</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.luman</groupId>
+            <artifactId>sofa-common-dal</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
