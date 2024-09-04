@@ -31,10 +31,159 @@ smy:
 
 ---
 # 开发环境
+# 加密
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    password: jasypt
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+
+# spring
 spring:
   config:
     activate:
       on-profile: local
+  mvc:
+    # 出现错误时, 直接抛出异常
+    throw-exception-if-no-handler-found: true
+  resources:
+    # 不主动映射静态页面
+    add-mappings: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql8.frp.lumanyy.com:13306/webapp?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&verifyServerCertificate=false&useSSL=false
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      # 设置是否自动提交事务，默认为true
+      auto-commit: true
+      # 设置用于测试连接的SQL查询语句
+      connection-test-query: SELECT 1
+      # 设置获取数据库连接的超时时间，默认为30秒，单位是秒
+      connection-timeout: 30000
+      # 设置连接在连接池中保持空闲的最长时间，默认为10分钟，单位是秒
+      idle-timeout: 30000
+      # 设置连接在连接池中允许存在的最长时间，默认为30分钟，单位是秒
+      max-lifetime: 1800000
+      # 设置连接池中允许的最大连接数，默认为10
+      maximum-pool-size: 15
+      # 设置连接池中保持的最小空闲连接数，默认为10
+      minimum-idle: 5
+      # 设置连接池的名称，默认为"HikariPool-1"
+      pool-name: HikariPool-mysql8
+      # 设置连接验证的超时时间，默认为5秒，单位是秒
+      validation-timeout: 10000
+  redis:
+    redisson:
+      config: |
+        singleServerConfig:
+          password: 123456
+          address: "redis://redis.frp.lumanyy.com:16379"
+          database: 1
+          timeout: 60000
+          # connectionPoolSize: 1
+          # connectionMinimumIdleSize: 1
+        threads: 0
+        nettyThreads: 0
+        codec: !<org.redisson.codec.JsonJacksonCodec> {}
+        transportMode: "NIO"
+        useScriptCache: true
+
+#mybatis
+mybatis-plus:
+  #mapper-locations: classpath:com/yyh/code/dal/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.luman.smy.infra.db.**.dataobject
+  global-config:
+    db-config:
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: AUTO
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: 2
+      #驼峰下划线转换
+      db-column-underline: true
+      #刷新mapper 调试神器
+      refresh-mapper: true
+      #数据库大写下划线转换
+      capital-mode: true
+      #序列接口实现类配置
+      #key-generator: com.baomidou.springboot.xxx
+      #逻辑删除配置（下面3个配置）
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+  #自定义SQL注入器
+  #sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+  #自定义填充策略接口实现
+  #meta-object-handler: com.baomidou.springboot.xxx
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 分页配置，分页类型为mysql
+pagehelper:
+  helper-dialect: mysql
+  # 分页合理化参数:pageNum<=0 时会查询第一页,pageNum>pages（超过总数时），会查询最后一页
+  reasonable: true
+  # 支持通过 Mapper 接口参数来传递分页参数（下文第三种查询用到）
+  support-methods-arguments: true
+
+#数据库加解密
+kq:
+  encrypt:
+    secret: qwer1234asdf5678
+
+#minio配置
+minio:
+  endPoint: http://minio-api.frp.lumanyy.com
+  accessKey: root
+  secretKey: password
+  secure: false
+  bucketName: webapp # 桶名 我这是给出了一个默认桶名
+  imageSize: 104857600 # 我在这里设定了 图片文件的最大大小 100MB=10*1024*1024
+  fileSize: 1073741824 # 此处是设定了文件的最大大小 1G=1024*1024*1024
+  isHttp: true
+  expirySecond: 3600
+
+#xxl-job
+xxl:
+  job:
+    admin:
+      accessToken: ''
+      address: http://xxl.frp.lumanyy.com
+    executor:
+      address: ''
+      appname: xxl-job-executor-myboot
+      ip: ''
+      logpath: ./logs/xxl-job
+      logretentiondays: 30
+      port: 18888
+
+# dubbo
+dubbo:
+  application:
+    name: provider-service
+  registry:
+    address: nacos://nacos.frp.lumanyy.com:8848
+    parameters:
+      namespace: f9f183ff-76c8-4eae-bf80-2aba39f27edb
+    username: nacos
+    password: nacos
+    accessKey: naocs
+    secretKey: naocs
+    enable-empty-protection: false
+  scan:
+    base-packages: com.luman.smy.app.facade
+  protocol:
+    name: dubbo
+    port: 15511
+
+# saToken
+sa-token:
+  token-name: Authorization
+  token-prefix: Bearer
+  jwt-secret-key: 'd0!doc15415B0*4G0`'
+
 nacos:
   config:
     server-addr: master:8848
