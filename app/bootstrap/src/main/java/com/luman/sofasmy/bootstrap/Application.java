@@ -2,6 +2,7 @@ package com.luman.sofasmy.bootstrap;
 
 import com.luman.sofa.common.utils.LoggerUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2024/08/25
  */
 @Slf4j
+@MapperScan("com.luman.sofasmy.dal.mapper")
 @SpringBootApplication(scanBasePackages = {"com.luman"})
 public class Application {
 
