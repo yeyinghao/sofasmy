@@ -7,7 +7,7 @@ package com.luman.sofasmy.bootstrap.converter;
 
 import ch.qos.logback.classic.pattern.ClassicConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
-import com.luman.sofa.common.util.util.TraceIdUtil;
+import com.alipay.common.tracer.core.utils.TracerUtils;
 
 /**
  * 日志跟踪转换器
@@ -19,6 +19,6 @@ public class LogTraceConverter extends ClassicConverter {
 
 	@Override
 	public String convert(ILoggingEvent iLoggingEvent) {
-		return TraceIdUtil.getThreadTraceId();
+		return TracerUtils.getTraceId();
 	}
 }

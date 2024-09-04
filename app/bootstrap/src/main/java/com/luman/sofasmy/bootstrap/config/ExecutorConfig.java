@@ -5,7 +5,7 @@
 
 package com.luman.sofasmy.bootstrap.config;
 
-import com.luman.sofa.common.util.constant.CommConstant;
+import com.luman.sofa.common.constant.CommConstant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;

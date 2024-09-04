@@ -5,7 +5,7 @@
 
 package com.luman.sofasmy.bootstrap.config;
 
-import com.luman.sofa.common.util.constant.CommConstant;
+import com.luman.sofa.common.constant.CommConstant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

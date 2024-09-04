@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.luman</groupId>
+    <groupId>com.luman.sofasmy</groupId>
     <artifactId>sofasmy</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <sofa-common.version>1.0.0-SNAPSHOT</sofa-common.version>
+        <sofacommon.version>1.0.0-SNAPSHOT</sofacommon.version>
     </properties>
 
     <modules>
@@ -31,6 +31,7 @@
         <module>app/common/service/facade</module>
         <module>app/common/service/integration</module>
         <module>app/common/dal</module>
+        <module>app/common/dto</module>
         <module>app/common/util</module>
     </modules>
 
@@ -38,61 +39,66 @@
         <dependencies>
             <!--Spring Boot-->
             <dependency>
-                <groupId>com.luman</groupId>
-                <artifactId>sofa-common</artifactId>
-                <version>${sofa-common.version}</version>
+                <groupId>com.luman.sofacommon</groupId>
+                <artifactId>sofacommon</artifactId>
+                <version>${sofacommon.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
             <!--Project modules-->
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-bootstrap</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-web</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-facade-impl</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-shared</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-model</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-service</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-integration</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-facade</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-dal</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.luman</groupId>
+                <groupId>com.luman.sofasmy</groupId>
+                <artifactId>sofasmy-dto</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-util</artifactId>
                 <version>${version}</version>
             </dependency>
