@@ -31,5 +31,9 @@
             <artifactId>sofasmy-shared</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>sofa-tracer-springmvc-plugin</artifactId>
+        </dependency>
     </dependencies>
 </project>
