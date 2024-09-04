@@ -1,6 +1,6 @@
 spring:
   application:
-    name: myboot
+    name: sofasmy
   profiles:
     active: local
   main:
