@@ -21,6 +21,11 @@
             <artifactId>sofasmy-bootstrap</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>test-sofa-boot-starter</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
