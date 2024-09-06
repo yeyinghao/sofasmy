@@ -5,6 +5,7 @@ import com.luman.sofa.common.monitor.dal.DalLog;
 import com.luman.sofasmy.dal.entity.UserDO;
 import com.luman.sofasmy.dal.mapper.UserMapper;
 import com.luman.sofasmy.model.user.User;
+import com.luman.sofasmy.model.user.converter.UserExtInfo;
 import com.luman.sofasmy.service.user.UserCoreService;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +15,18 @@ public class UserCoreServiceImpl extends CoreServiceImpl<User, UserDO, UserMappe
 
 	@Override
 	public UserDO convertToPO(User user) {
-		UserDO userDO = build(new UserDO(), user);
+		UserDO userDO = buildDO(new UserDO(), user);
 		userDO.setUsername(user.getUsername());
+		UserExtInfo.buildExtInfo(userDO, user);
 		return userDO;
 	}
 
 	@Override
 	public User convertToDP(UserDO userDO) {
-		User user = build(new User(), userDO);
+		User user = buildDP(new User(), userDO);
 		user.setUsername(userDO.getUsername());
+		UserExtInfo.buildExtObj(user, userDO);
 		return user;
 	}
+
 }
