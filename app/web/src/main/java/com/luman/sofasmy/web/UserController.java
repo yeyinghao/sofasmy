@@ -1,15 +1,14 @@
 package com.luman.sofasmy.web;
 
+import com.luman.sofa.common.dto.PageModel;
 import com.luman.sofa.common.dto.Response;
-import com.luman.sofa.common.helper.RHelper;
 import com.luman.sofa.common.monitor.rest.RestLog;
+import com.luman.sofasmy.dto.user.UserPageQueryCmd;
+import com.luman.sofasmy.dto.user.UserSaveCmd;
 import com.luman.sofasmy.dto.user.data.UserVO;
 import com.luman.sofasmy.shared.user.UserManager;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RestLog
@@ -27,7 +26,17 @@ public class UserController {
 	 */
 	@GetMapping("/{id}")
 	public Response<UserVO> getById(@PathVariable("id") Long id) {
-		return RHelper.success(userManager.getById(id));
+		return Response.success(userManager.getById(id));
+	}
+
+	@PostMapping
+	public Response<Long> saveUser(@RequestBody UserSaveCmd userSaveCmd) {
+		return Response.success(userManager.saveUser(userSaveCmd));
+	}
+
+	@PostMapping("/page")
+	public Response<PageModel<UserVO>> pageUser(@RequestBody UserPageQueryCmd userPageQueryCmd) {
+		return Response.success(userManager.pageUser(userPageQueryCmd));
 	}
 
 }

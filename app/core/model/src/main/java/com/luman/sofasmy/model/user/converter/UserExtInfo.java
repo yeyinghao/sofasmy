@@ -44,7 +44,7 @@ public class UserExtInfo {
 		}
 		String sexListStr = extObj.getStr(SEXLIST_KEY);
 		if (StrUtil.isNotBlank(sexListStr)) {
-			user.setSexList(EnumUtil.getEnumsByCodes(SexEnum.class, JSONUtil.toList(sexStr, String.class)));
+			user.setSexList(EnumUtil.getEnumsByCodes(SexEnum.class, JSONUtil.toList(sexListStr, String.class)));
 		}
 	}
 }

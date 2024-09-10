@@ -1,9 +1,12 @@
 package com.luman.sofasmy.service.user.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.luman.sofa.common.dal.service.impl.CoreServiceImpl;
+import com.luman.sofa.common.dto.PageModel;
 import com.luman.sofa.common.monitor.dal.DalLog;
 import com.luman.sofasmy.dal.entity.UserDO;
 import com.luman.sofasmy.dal.mapper.UserMapper;
+import com.luman.sofasmy.dto.user.UserPageQueryCmd;
 import com.luman.sofasmy.model.user.User;
 import com.luman.sofasmy.model.user.converter.UserExtInfo;
 import com.luman.sofasmy.service.user.UserCoreService;
@@ -29,4 +32,10 @@ public class UserCoreServiceImpl extends CoreServiceImpl<User, UserDO, UserMappe
 		return user;
 	}
 
+	@Override
+	public PageModel<User> listByPage(UserPageQueryCmd userPageQueryCmd) {
+		IPage<UserDO> page = paging2Page(userPageQueryCmd.getPaging());
+		page = lambdaQuery().page(page);
+		return page2PageModel(page.convert(this::convertToDP));
+	}
 }
