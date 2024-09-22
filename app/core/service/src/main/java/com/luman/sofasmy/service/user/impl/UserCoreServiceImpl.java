@@ -1,6 +1,7 @@
 package com.luman.sofasmy.service.user.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.luman.sofa.common.dal.convert.ModelConverter;
 import com.luman.sofa.common.dal.service.impl.CoreServiceImpl;
 import com.luman.sofa.common.dto.PageModel;
 import com.luman.sofa.common.monitor.dal.DalLog;
@@ -18,7 +19,7 @@ public class UserCoreServiceImpl extends CoreServiceImpl<User, UserDO, UserMappe
 
 	@Override
 	public UserDO convertToPO(User user) {
-		UserDO userDO = buildDO(new UserDO(), user);
+		UserDO userDO = ModelConverter.buildDP(UserDO.class, user);
 		userDO.setUsername(user.getUsername());
 		UserExtInfo.buildExtInfo(userDO, user);
 		return userDO;
@@ -26,16 +27,14 @@ public class UserCoreServiceImpl extends CoreServiceImpl<User, UserDO, UserMappe
 
 	@Override
 	public User convertToDP(UserDO userDO) {
-		User user = buildDP(new User(), userDO);
+		User user = ModelConverter.buildDP(User.class, userDO);
 		user.setUsername(userDO.getUsername());
 		UserExtInfo.buildExtObj(user, userDO);
 		return user;
 	}
 
 	@Override
-	public PageModel<User> listByPage(UserPageQueryCmd userPageQueryCmd) {
-		IPage<UserDO> page = paging2Page(userPageQueryCmd.getPaging());
-		page = lambdaQuery().page(page);
-		return page2PageModel(page.convert(this::convertToDP));
+	public IPage<User> listByPage(IPage<UserDO> paging, UserPageQueryCmd userPageQueryCmd) {
+		return lambdaQuery().page(paging).convert(this::convertToDP);
 	}
 }

@@ -25,7 +25,8 @@ public class UserCmdExe {
 		user.setPassword(userSaveCmd.getPassword());
 		user.setName(userSaveCmd.getName());
 		user.setSex(EnumUtil.getEnumByCode(SexEnum.class, userSaveCmd.getSex()).orElse(null));
-		user.setSexList(EnumUtil.getEnumsByCodes(SexEnum.class, userSaveCmd.getSexList()));
+		user.setSexList(userSaveCmd.getSexList().stream().map(item -> EnumUtil.
+				getEnumByCode(SexEnum.class, item).orElse(null)).toList());
 		return user;
 	}
 }

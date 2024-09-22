@@ -50,57 +50,57 @@
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-bootstrap</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-web</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-facade-impl</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-shared</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-model</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-service</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-integration</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-facade</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-dal</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-dto</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luman.sofasmy</groupId>
                 <artifactId>sofasmy-util</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <!--Project modules End-->
         </dependencies>

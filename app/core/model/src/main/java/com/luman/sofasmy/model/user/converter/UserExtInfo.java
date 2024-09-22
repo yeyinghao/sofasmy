@@ -5,6 +5,7 @@ import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.luman.sofa.common.enums.ErrorEnum;
 import com.luman.sofa.common.exception.BizExceptionFactory;
 import com.luman.sofa.common.utils.EnumUtil;
 import com.luman.sofasmy.dal.entity.UserDO;
@@ -25,7 +26,7 @@ public class UserExtInfo {
 			extObj.putOpt(SEX_KEY, EnumUtil.getName(user.getSex()));
 		}
 		if (CollUtil.isNotEmpty(user.getSexList())) {
-			extObj.putOpt(SEXLIST_KEY, EnumUtil.getNames(user.getSexList()));
+			extObj.putOpt(SEXLIST_KEY, user.getSexList().stream().map(EnumUtil::getName).toList());
 		}
 		if (MapUtil.isNotEmpty(extObj)) {
 			userDO.setExtInfo(JSONUtil.toJsonStr(extObj));
@@ -40,11 +41,11 @@ public class UserExtInfo {
 		JSONObject extObj = JSONUtil.toBean(extInfo, JSONObject.class);
 		String sexStr = extObj.getStr(SEX_KEY);
 		if (StrUtil.isNotBlank(sexStr)) {
-			user.setSex(EnumUtil.getEnumByCode(SexEnum.class, sexStr).orElseThrow(() -> BizExceptionFactory.build(sexStr)));
+			user.setSex(EnumUtil.getEnumByCode(SexEnum.class, sexStr).orElseThrow(() -> BizExceptionFactory.build(ErrorEnum.ILLEGAL_ENUM, "无法识别的枚举SexEnum, {}", sexStr)));
 		}
 		String sexListStr = extObj.getStr(SEXLIST_KEY);
 		if (StrUtil.isNotBlank(sexListStr)) {
-			user.setSexList(EnumUtil.getEnumsByCodes(SexEnum.class, JSONUtil.toList(sexListStr, String.class)));
+			user.setSexList(JSONUtil.toList(sexListStr, String.class).stream().map(item -> EnumUtil.getEnumByCode(SexEnum.class, item).orElse(null)).toList());
 		}
 	}
 }
