@@ -27,6 +27,7 @@ public class UserQueryCmdExe implements PageConverter {
 		userVO.setId(user.getId());
 		userVO.setUsername(user.getUsername());
 		userVO.setSex(EnumUtil.enum2VO(user.getSex()));
+		userVO.setSexList(user.getSexList().stream().map(EnumUtil::enum2VO).toList());
 		return userVO;
 	}
 
