@@ -1,5 +1,6 @@
 package com.luman.sofasmy.shared.user.cmd.query;
 
+import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.luman.sofa.common.dal.convert.PageConverter;
 import com.luman.sofa.common.dto.PageModel;
@@ -27,7 +28,9 @@ public class UserQueryCmdExe implements PageConverter {
 		userVO.setId(user.getId());
 		userVO.setUsername(user.getUsername());
 		userVO.setSex(EnumUtil.enum2VO(user.getSex()));
-		userVO.setSexList(user.getSexList().stream().map(EnumUtil::enum2VO).toList());
+		if (CollUtil.isNotEmpty(user.getSexList())) {
+			userVO.setSexList(user.getSexList().stream().map(EnumUtil::enum2VO).toList());
+		}
 		return userVO;
 	}
 
