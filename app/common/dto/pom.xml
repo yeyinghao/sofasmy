@@ -18,9 +18,8 @@
 
         <dependency>
             <groupId>com.luman.sofacommon</groupId>
-            <artifactId>sofa-common</artifactId>
+            <artifactId>sofa-dto</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

@@ -25,7 +25,6 @@
             <groupId>com.alipay.sofa</groupId>
             <artifactId>test-sofa-boot-starter</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

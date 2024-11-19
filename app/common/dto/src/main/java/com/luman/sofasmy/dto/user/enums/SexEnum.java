@@ -1,6 +1,6 @@
 package com.luman.sofasmy.dto.user.enums;
 
-import com.luman.sofa.common.enums.ByStringCode;
+import com.luman.sofa.dto.enums.ByStringCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;

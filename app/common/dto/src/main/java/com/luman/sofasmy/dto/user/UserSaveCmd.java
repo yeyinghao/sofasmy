@@ -1,6 +1,6 @@
 package com.luman.sofasmy.dto.user;
 
-import com.luman.sofa.common.dto.Command;
+import com.luman.sofa.dto.Command;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

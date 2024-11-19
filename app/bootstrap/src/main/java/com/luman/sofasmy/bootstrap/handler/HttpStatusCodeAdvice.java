@@ -4,9 +4,9 @@
 
 package com.luman.sofasmy.bootstrap.handler;
 
-import com.luman.sofa.common.dto.Response;
 import com.luman.sofa.common.enums.ErrorEnum;
-import com.luman.sofa.common.exception.CheckUtil;
+import com.luman.sofa.common.exception.VarChecker;
+import com.luman.sofa.dto.Response;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -36,7 +36,7 @@ public class HttpStatusCodeAdvice implements ResponseBodyAdvice {
 		if (body instanceof Response) {
 			Integer status = ((Response) body).getCode();
 			HttpStatus httpStatus = HttpStatus.resolve(status);
-			CheckUtil.notNull(httpStatus, ErrorEnum.SYS_ERROR);
+			VarChecker.notNull(httpStatus, ErrorEnum.SYS_ERROR);
 			response.setStatusCode(httpStatus);
 		}
 		return body;

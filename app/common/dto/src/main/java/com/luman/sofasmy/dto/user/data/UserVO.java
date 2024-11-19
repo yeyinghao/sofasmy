@@ -1,11 +1,13 @@
 package com.luman.sofasmy.dto.user.data;
 
-import com.luman.sofa.common.dto.EnumVO;
-import com.luman.sofa.common.dto.VO;
+import com.luman.sofa.dto.EnumVO;
+import com.luman.sofa.dto.VO;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class UserVO extends VO {
 

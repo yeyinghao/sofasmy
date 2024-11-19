@@ -3,7 +3,6 @@ package com.luman.sofasmy.service.user.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.luman.sofa.common.dal.convert.ModelConverter;
 import com.luman.sofa.common.dal.service.impl.CoreServiceImpl;
-import com.luman.sofa.common.dto.PageModel;
 import com.luman.sofa.common.monitor.dal.DalLog;
 import com.luman.sofasmy.dal.entity.UserDO;
 import com.luman.sofasmy.dal.mapper.UserMapper;

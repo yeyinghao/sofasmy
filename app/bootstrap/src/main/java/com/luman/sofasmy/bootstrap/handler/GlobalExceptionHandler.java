@@ -2,10 +2,11 @@ package com.luman.sofasmy.bootstrap.handler;
 
 import cn.hutool.core.util.StrUtil;
 import com.luman.sofa.common.constant.CommConstant;
-import com.luman.sofa.common.dto.Response;
 import com.luman.sofa.common.enums.ErrorEnum;
 import com.luman.sofa.common.exception.BizException;
+import com.luman.sofa.common.helper.ResponseHelper;
 import com.luman.sofa.common.utils.LoggerUtil;
+import com.luman.sofa.dto.Response;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +47,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	public Response<String> exceptionHandler(Exception e) {
 		LoggerUtil.error(log, e);
-		return Response.fail(ErrorEnum.SYS_ERROR);
+		return ResponseHelper.fail(ErrorEnum.SYS_ERROR);
 	}
 
 	/**
@@ -55,7 +56,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public Response<String> sqlExceptionHandler(NoHandlerFoundException e) {
 		LoggerUtil.info(log, e, request.getServletPath());
-		return Response.fail(ErrorEnum.NOT_FOUND);
+		return ResponseHelper.fail(ErrorEnum.NOT_FOUND);
 	}
 
 	/**
@@ -64,7 +65,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(HttpRequestMethodNotSupportedException.class)
 	public Response<String> sqlExceptionHandler(HttpRequestMethodNotSupportedException e) {
 		LoggerUtil.info(log, e, request.getServletPath());
-		return Response.fail(ErrorEnum.BIZ_ERROR, "请求方式不支持");
+		return ResponseHelper.fail(ErrorEnum.BIZ_ERROR, "请求方式不支持");
 	}
 
 	/**
@@ -73,9 +74,8 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(BizException.class)
 	public Response<String> bizExceptionHandler(BizException e) {
 		LoggerUtil.info(log, e);
-		return Response.fail(e.getByErrorCode(), e.getMessage());
+		return ResponseHelper.fail(e.getByErrorCode(), e.getMessage());
 	}
-
 
 	/**
 	 * 绑定异常
@@ -90,7 +90,7 @@ public class GlobalExceptionHandler {
 		String msg = Objects.requireNonNull(e.getBindingResult().getFieldError()).getDefaultMessage();
 		if (StrUtil.isNotEmpty(msg)) {
 			// 自定义状态返回
-			return Response.fail(ErrorEnum.ILLEGAL_PARAMETER, msg);
+			return ResponseHelper.fail(ErrorEnum.ILLEGAL_PARAMETER, msg);
 		}
 		// 参数类型不匹配检验
 		StringBuilder message = new StringBuilder();
@@ -98,7 +98,7 @@ public class GlobalExceptionHandler {
 		fieldErrors.forEach((item) -> message.append("参数:[").append(item.getObjectName())
 				.append(".").append(item.getField()).append("]的传入值:[")
 				.append(item.getRejectedValue()).append("]与预期的字段类型不匹配."));
-		return Response.fail(ErrorEnum.ILLEGAL_PARAMETER, message.toString());
+		return ResponseHelper.fail(ErrorEnum.ILLEGAL_PARAMETER, message.toString());
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class GlobalExceptionHandler {
 		Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 		String message = violations.stream().map(ConstraintViolation::getMessage)
 				.collect(Collectors.joining(";"));
-		return Response.fail(ErrorEnum.ILLEGAL_PARAMETER, message);
+		return ResponseHelper.fail(ErrorEnum.ILLEGAL_PARAMETER, message);
 	}
 
 	/**
@@ -128,6 +128,6 @@ public class GlobalExceptionHandler {
 		String message = e.getBindingResult().getFieldErrors().stream()
 				.map(item -> item.getField() + CommConstant.COLON + item.getDefaultMessage())
 				.collect(Collectors.joining(CommConstant.SEMICOLON));
-		return Response.fail(ErrorEnum.ILLEGAL_PARAMETER, message);
+		return ResponseHelper.fail(ErrorEnum.ILLEGAL_PARAMETER, message);
 	}
 }

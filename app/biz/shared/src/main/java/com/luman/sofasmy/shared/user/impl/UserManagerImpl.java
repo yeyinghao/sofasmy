@@ -1,6 +1,6 @@
 package com.luman.sofasmy.shared.user.impl;
 
-import com.luman.sofa.common.dto.PageModel;
+import com.luman.sofa.dto.PageModel;
 import com.luman.sofasmy.dto.user.UserPageQueryCmd;
 import com.luman.sofasmy.dto.user.UserSaveCmd;
 import com.luman.sofasmy.dto.user.data.UserVO;
