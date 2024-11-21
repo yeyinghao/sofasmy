@@ -33,7 +33,7 @@
     </dependencies>
 
     <build>
-        <finalName>think-start</finalName>
+        <finalName>sofa-smy</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -41,6 +41,9 @@
                 <version>3.3.3</version>
                 <configuration>
                     <mainClass>com.luman.smy.Application</mainClass>
+                    <!--设置输出目录-->
+                    <outputDirectory>../../boot</outputDirectory>
+                    <includeSystemScope>true</includeSystemScope>
                 </configuration>
                 <executions>
                     <execution>
