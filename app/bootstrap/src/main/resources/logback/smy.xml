@@ -22,12 +22,12 @@
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
-        <file>${LOG_PATH}/${FILE_LOG}/commom-default.log</file>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/commom-default.log</file>
         <!-- 设置滚动策略 -->
         <!-- 按天来回滚，如果需要按小时来回滚，则设置为{yyyy-MM-dd_HH} -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--设置日志命名模式 -->
-            <fileNamePattern>${LOG_PATH}/${FILE_LOG}/commom-default.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/commom-default.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
@@ -39,7 +39,7 @@
         <encoder>
             <!-- 格式化输出 -->
             <pattern>
-                ${FILE_LOG_PATTERN}
+                ${LOG_PATTERN}
             </pattern>
             <!-- 设置字符集 -->
             <charset>${charset}</charset>
@@ -53,9 +53,9 @@
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
-        <file>${LOG_PATH}/${FILE_LOG}/commom-error.log</file>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/commom-error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${FILE_LOG}/commom-error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/commom-error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
@@ -67,7 +67,7 @@
         <encoder>
             <!-- 格式化输出 -->
             <pattern>
-                ${FILE_LOG_PATTERN}
+                ${LOG_PATTERN}
             </pattern>
             <!-- 设置字符集 -->
             <charset>${charset}</charset>

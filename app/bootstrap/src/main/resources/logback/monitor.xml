@@ -7,9 +7,9 @@
 
     <!--cal日志打印-->
     <appender name="CAL_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/cal.log</file>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/cal.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/cal.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/cal.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
@@ -21,7 +21,7 @@
         <encoder>
             <!-- 格式化输出 -->
             <pattern>
-                ${FILE_LOG_PATTERN}
+                ${LOG_PATTERN}
             </pattern>
             <!-- 设置字符集 -->
             <charset>${charset}</charset>
@@ -34,9 +34,9 @@
 
     <!-- dal-日志打印 -->
     <appender name="DAL_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/dal.log</file>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/dal.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/dal.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/dal.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
@@ -48,7 +48,7 @@
         <encoder>
             <!-- 格式化输出 -->
             <pattern>
-                ${FILE_LOG_PATTERN}
+                ${LOG_PATTERN}
             </pattern>
             <!-- 设置字符集 -->
             <charset>${charset}</charset>
@@ -61,9 +61,9 @@
 
     <!--   biz-日志打印	-->
     <appender name="BIZ_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/biz.log</file>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/biz.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/biz.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/biz.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
@@ -75,7 +75,7 @@
         <encoder>
             <!-- 格式化输出 -->
             <pattern>
-                ${FILE_LOG_PATTERN}
+                ${LOG_PATTERN}
             </pattern>
             <!-- 设置字符集 -->
             <charset>${charset}</charset>
@@ -88,9 +88,9 @@
 
     <!--   rest-日志打印	-->
     <appender name="FACADE_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/facade.log</file>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/facade.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/facade.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/facade.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
@@ -102,7 +102,7 @@
         <encoder>
             <!-- 格式化输出 -->
             <pattern>
-                ${FILE_LOG_PATTERN}
+                ${LOG_PATTERN}
             </pattern>
             <!-- 设置字符集 -->
             <charset>${charset}</charset>
@@ -115,9 +115,9 @@
 
     <!--   rest-日志打印	-->
     <appender name="WEB_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/web.log</file>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/web.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/web.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/web.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
@@ -129,7 +129,7 @@
         <encoder>
             <!-- 格式化输出 -->
             <pattern>
-                ${FILE_LOG_PATTERN}
+                ${LOG_PATTERN}
             </pattern>
             <!-- 设置字符集 -->
             <charset>${charset}</charset>
@@ -142,9 +142,9 @@
 
     <!--   sal-日志打印	-->
     <appender name="CLIENT_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/client.log</file>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/client.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${FILE_LOG}/${MONITOR_LOG}/client.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/client.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
@@ -156,7 +156,7 @@
         <encoder>
             <!-- 格式化输出 -->
             <pattern>
-                ${FILE_LOG_PATTERN}
+                ${LOG_PATTERN}
             </pattern>
             <!-- 设置字符集 -->
             <charset>${charset}</charset>

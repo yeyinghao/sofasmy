@@ -15,6 +15,12 @@
     <name>sofasmy-bootstrap</name>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.luman.sofacommon</groupId>
+            <artifactId>sofa-bootstrap</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.luman.sofasmy</groupId>
             <artifactId>sofasmy-web</artifactId>

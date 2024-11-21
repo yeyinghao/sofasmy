@@ -26,6 +26,15 @@
             <artifactId>sofa-monitor</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.luman.sofacommon</groupId>
+            <artifactId>sofa-cache</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.luman.sofacommon</groupId>
+            <artifactId>sofa-file</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
