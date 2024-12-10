@@ -33,14 +33,14 @@
     </dependencies>
 
     <build>
-        <finalName>sofa-smy</finalName>
+        <finalName>sofasmy</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>3.3.3</version>
                 <configuration>
-                    <mainClass>com.luman.smy.Application</mainClass>
+                    <mainClass>com.luman.sofasmy.bootstrap.Application</mainClass>
                     <!--设置输出目录-->
                     <outputDirectory>../../boot</outputDirectory>
                     <includeSystemScope>true</includeSystemScope>

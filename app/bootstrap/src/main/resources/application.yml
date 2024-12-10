@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sofa-smy
+    name: sofasmy
   profiles:
     active: local
   main:
@@ -23,10 +23,7 @@ nacos:
 
 smy:
   cache:
-    projectKeyPrefix: pms
-    cacheKeyPrefix: cache
-    ttlMillSecond:  1440000
-    maxIdleTimeMillSecond:  720000
+    projectKeyPrefix: SOFA_SMY
     defaultExpiredSecond: 300
 
 ---
@@ -51,7 +48,7 @@ spring:
     add-mappings: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql8.frp.lumanyy.com:13306/webapp?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&verifyServerCertificate=false&useSSL=false
+    url: jdbc:mysql://master:3306/webapp?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&verifyServerCertificate=false&useSSL=false
     username: root
     password: root
     type: com.zaxxer.hikari.HikariDataSource
@@ -71,7 +68,7 @@ spring:
       # 设置连接池中保持的最小空闲连接数，默认为10
       minimum-idle: 5
       # 设置连接池的名称，默认为"HikariPool-1"
-      pool-name: HikariPool-mysql8
+      pool-name: HikariPool-Mysql8
       # 设置连接验证的超时时间，默认为5秒，单位是秒
       validation-timeout: 10000
   redis:
@@ -79,7 +76,7 @@ spring:
       config: |
         singleServerConfig:
           password: 123456
-          address: "redis://redis.frp.lumanyy.com:16379"
+          address: "redis://master:6379"
           database: 1
           timeout: 60000
           # connectionPoolSize: 1
@@ -135,7 +132,7 @@ kq:
 
 #minio配置
 minio:
-  endPoint: http://minio-api.frp.lumanyy.com
+  endPoint: http://master:19000
   accessKey: root
   secretKey: password
   secure: false
@@ -150,7 +147,7 @@ xxl:
   job:
     admin:
       accessToken: ''
-      address: http://xxl.frp.lumanyy.com
+      address: http://master:18080
     executor:
       address: ''
       appname: xxl-job-executor-myboot
@@ -164,7 +161,7 @@ dubbo:
   application:
     name: provider-service
   registry:
-    address: nacos://nacos.frp.lumanyy.com:8848
+    address: nacos://master:8848
     parameters:
       namespace: f9f183ff-76c8-4eae-bf80-2aba39f27edb
     username: nacos
