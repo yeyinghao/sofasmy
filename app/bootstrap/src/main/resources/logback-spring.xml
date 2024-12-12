@@ -22,8 +22,6 @@
     <property name="LOG_PATTERN" value="%d %-5level [%traceId] %logger[%line] - %msg%n"/>
     <!--引用公共日志-->
     <include resource="logback/smy.xml"/>
-    <!--引用监控日志-->
-    <include resource="logback/monitor.xml"/>
     <!--引用biz日志-->
     <include resource="logback/biz.xml"/>
 

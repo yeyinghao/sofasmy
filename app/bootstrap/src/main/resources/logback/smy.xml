@@ -25,16 +25,14 @@
         <file>${LOG_PATH}/${APPLICATION_LOG}/commom-default.log</file>
         <!-- 设置滚动策略 -->
         <!-- 按天来回滚，如果需要按小时来回滚，则设置为{yyyy-MM-dd_HH} -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--设置日志命名模式 -->
             <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/commom-default.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- 设置文件大于10MB进行压缩归档 -->
-                <maxFileSize>${maxFileSize}</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 设置文件大于10MB进行压缩归档 -->
+            <maxFileSize>${maxFileSize}</maxFileSize>
         </rollingPolicy>
         <encoder>
             <!-- 格式化输出 -->
@@ -54,15 +52,13 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <file>${LOG_PATH}/${APPLICATION_LOG}/commom-error.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/commom-error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- 设置文件大于10MB进行压缩归档 -->
-                <maxFileSize>${maxFileSize}</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 设置文件大于10MB进行压缩归档 -->
+            <maxFileSize>${maxFileSize}</maxFileSize>
         </rollingPolicy>
         <encoder>
             <!-- 格式化输出 -->

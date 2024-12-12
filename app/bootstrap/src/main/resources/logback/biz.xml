@@ -3,22 +3,18 @@
     additivity="false" 防止公共的文件打印日志(防止重复打印日志),
     <appender-ref ref="CONSOLE_LOGGER_APPENDER" />指定输出控制台
     -->
-    <property name="CACHE_LOG" value="cache"/>
-    <property name="FILE_LOG" value="file"/>
-    <property name="LOCK_LOG" value="lock"/>
+    <property name="BIZ_LOG" value="biz"/>
 
     <!--cal日志打印-->
-    <appender name="CACHE_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${APPLICATION_LOG}/${CACHE_LOG}/cache.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${CACHE_LOG}/cache.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+    <appender name="CAL_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/cal.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/cal.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- 设置文件大于10MB进行压缩归档 -->
-                <maxFileSize>${maxFileSize}</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 设置文件大于10MB进行压缩归档 -->
+            <maxFileSize>${maxFileSize}</maxFileSize>
         </rollingPolicy>
         <encoder>
             <!-- 格式化输出 -->
@@ -29,23 +25,71 @@
             <charset>${charset}</charset>
         </encoder>
     </appender>
-    <logger name="CACHE_LOG" level="info" additivity="false">
-        <appender-ref ref="CACHE_LOG_APPENDER"/>
+    <logger name="CAL_LOG" level="info" additivity="false">
+        <appender-ref ref="CAL_LOG_APPENDER"/>
+        <appender-ref ref="CONSOLE_LOGGER_APPENDER"/>
+    </logger>
+
+    <!-- dal-日志打印 -->
+    <appender name="DAL_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/dal.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/dal.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
+            <maxHistory>${maxHistory}</maxHistory>
+            <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
+            <!-- 设置文件大于10MB进行压缩归档 -->
+            <maxFileSize>${maxFileSize}</maxFileSize>
+        </rollingPolicy>
+        <encoder>
+            <!-- 格式化输出 -->
+            <pattern>
+                ${LOG_PATTERN}
+            </pattern>
+            <!-- 设置字符集 -->
+            <charset>${charset}</charset>
+        </encoder>
+    </appender>
+    <logger name="DAL_LOG" level="info" additivity="false">
+        <appender-ref ref="DAL_LOG_APPENDER"/>
+        <appender-ref ref="CONSOLE_LOGGER_APPENDER"/>
+    </logger>
+
+    <!--   biz-日志打印	-->
+    <appender name="BIZ_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/biz.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${MONITOR_LOG}/biz.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
+            <maxHistory>${maxHistory}</maxHistory>
+            <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
+            <!-- 设置文件大于10MB进行压缩归档 -->
+            <maxFileSize>${maxFileSize}</maxFileSize>
+        </rollingPolicy>
+        <encoder>
+            <!-- 格式化输出 -->
+            <pattern>
+                ${LOG_PATTERN}
+            </pattern>
+            <!-- 设置字符集 -->
+            <charset>${charset}</charset>
+        </encoder>
+    </appender>
+    <logger name="BIZ_LOG" level="info" additivity="false">
+        <appender-ref ref="BIZ_LOG_APPENDER"/>
         <appender-ref ref="CONSOLE_LOGGER_APPENDER"/>
     </logger>
 
     <!-- dal-日志打印 -->
     <appender name="FILE_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${APPLICATION_LOG}/${FILE_LOG}/file.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${FILE_LOG}/file.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${BIZ_LOG}/file.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${BIZ_LOG}/file.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- 设置文件大于10MB进行压缩归档 -->
-                <maxFileSize>${maxFileSize}</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 设置文件大于10MB进行压缩归档 -->
+            <maxFileSize>${maxFileSize}</maxFileSize>
         </rollingPolicy>
         <encoder>
             <!-- 格式化输出 -->
@@ -63,16 +107,14 @@
 
     <!--   biz-日志打印	-->
     <appender name="LOCK_LOG_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${APPLICATION_LOG}/${LOCK_LOG}/lock.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${LOCK_LOG}/lock.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        <file>${LOG_PATH}/${APPLICATION_LOG}/${BIZ_LOG}/lock.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APPLICATION_LOG}/${BIZ_LOG}/lock.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 这里的值与滚动策略模式有关 -->
             <maxHistory>${maxHistory}</maxHistory>
             <!-- 按照日期进行归档，并且对日志文件大小进行限制 -->
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- 设置文件大于10MB进行压缩归档 -->
-                <maxFileSize>${maxFileSize}</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 设置文件大于10MB进行压缩归档 -->
+            <maxFileSize>${maxFileSize}</maxFileSize>
         </rollingPolicy>
         <encoder>
             <!-- 格式化输出 -->
