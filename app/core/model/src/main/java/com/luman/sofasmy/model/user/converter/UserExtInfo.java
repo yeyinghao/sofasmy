@@ -33,7 +33,7 @@ public class UserExtInfo {
 		}
 	}
 
-	public static void buildExtObj(User user, UserDO userDO) {
+	public static void buildExtInfo(User user, UserDO userDO) {
 		String extInfo = userDO.getExtInfo();
 		if (StrUtil.isBlank(extInfo)) {
 			return;

@@ -23,11 +23,6 @@
 
         <dependency>
             <groupId>com.luman.sofacommon</groupId>
-            <artifactId>sofa-monitor</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.luman.sofacommon</groupId>
             <artifactId>sofa-cache</artifactId>
         </dependency>
 

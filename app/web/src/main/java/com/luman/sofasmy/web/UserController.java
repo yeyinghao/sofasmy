@@ -1,7 +1,8 @@
 package com.luman.sofasmy.web;
 
+import com.luman.sofa.common.constant.LoggerConstant;
 import com.luman.sofa.common.helper.ResponseHelper;
-import com.luman.sofa.common.monitor.rest.RestLog;
+import com.luman.sofa.common.log.Logged;
 import com.luman.sofa.dto.PageModel;
 import com.luman.sofa.dto.Response;
 import com.luman.sofasmy.dto.user.UserPageQueryCmd;
@@ -12,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RestLog
+@Logged(topic = LoggerConstant.REST_LOG, web = true)
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
 public class UserController {

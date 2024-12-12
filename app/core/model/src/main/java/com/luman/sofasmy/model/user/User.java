@@ -1,6 +1,6 @@
 package com.luman.sofasmy.model.user;
 
-import com.luman.sofa.common.dal.model.DP;
+import com.luman.sofa.common.dal.integration.model.DP;
 import com.luman.sofasmy.dto.user.enums.SexEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,9 +25,6 @@ public class User extends DP {
 	 * 姓名（较常用，故放在用户主表）
 	 */
 	private String name;
-
-
-
 
 	private SexEnum sex;
 

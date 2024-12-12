@@ -22,11 +22,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.luman.sofacommon</groupId>
-            <artifactId>sofa-monitor</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.luman.sofasmy</groupId>
             <artifactId>sofasmy-integration</artifactId>
         </dependency>

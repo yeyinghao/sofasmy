@@ -2,7 +2,7 @@ package com.luman.sofasmy.shared.user.cmd.query;
 
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.luman.sofa.common.dal.convert.PageConverter;
+import com.luman.sofa.common.dal.integration.convert.PageConverter;
 import com.luman.sofa.common.utils.EnumUtil;
 import com.luman.sofa.dto.PageModel;
 import com.luman.sofasmy.dal.entity.UserDO;
